@@ -56,30 +56,30 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
   return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/20' : 'bg-white/60 backdrop-blur-lg'}`}>
-      <div className="container-custom mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container-custom mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-3">
-            <img src="/logo.png" alt="Rental MG Empilhadeiras" className="h-24 w-auto" />
-            <span className="text-foreground font-heading font-bold text-lg hidden sm:block">
+          <a href="#inicio" className="flex items-center gap-2 sm:gap-3">
+            <img src="/logo.png" alt="Rental MG Empilhadeiras" className="h-16 sm:h-20 md:h-24 w-auto" />
+            <span className="text-foreground font-heading font-bold text-base sm:text-lg hidden sm:block">
               Rental MG
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map(link => (
               <button 
                 key={link.href} 
                 onClick={() => scrollToSection(link.href)} 
-                className="text-foreground/80 hover:text-primary transition-colors font-medium"
+                className="text-foreground/80 hover:text-primary transition-colors font-medium text-sm xl:text-base"
               >
                 {link.label}
               </button>
             ))}
             <button 
               onClick={goToVitrine}
-              className="text-foreground/80 hover:text-primary transition-colors font-medium flex items-center gap-1"
+              className="text-foreground/80 hover:text-primary transition-colors font-medium flex items-center gap-1 text-sm xl:text-base"
             >
               <ShoppingBag className="w-4 h-4" />
               Vitrine
@@ -87,32 +87,34 @@ const Header = () => {
           </nav>
 
           {/* CTA Buttons Desktop */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
             <Button 
               onClick={goToVitrine} 
               variant="outline"
-              className="border-primary text-primary hover:bg-primary/10 font-semibold"
+              size="sm"
+              className="border-primary text-primary hover:bg-primary/10 font-semibold text-sm"
             >
-              <ShoppingBag className="w-4 h-4 mr-2" />
+              <ShoppingBag className="w-4 h-4 mr-1.5" />
               Vitrine
             </Button>
             <Button 
               onClick={() => scrollToSection('#contato')} 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+              size="sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm"
             >
               Fale conosco
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-foreground p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Menu">
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          <button className="lg:hidden text-foreground p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Menu">
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/90 backdrop-blur-xl border-t border-white/20">
+          <div className="lg:hidden bg-white/90 backdrop-blur-xl border-t border-white/20">
             <nav className="flex flex-col py-4">
               {navLinks.map(link => (
                 <button 
