@@ -68,10 +68,10 @@ const Hero = () => {
             <Button
               size="lg"
               onClick={scrollToContact}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-6 group"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-6 group hover-glow animate-pulse-glow"
             >
               Solicitar orçamento
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
             <Button
               size="lg"
