@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin, Clock, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import bgContactImage from '@/assets/bg-contact.jpg';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 
 const Contact = () => {
   const contactInfo = [
@@ -96,19 +97,15 @@ const Contact = () => {
                 Precisa de um orçamento urgente? Fale diretamente conosco pelo
                 WhatsApp.
               </p>
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+              <a
+                href="https://wa.me/5511999999999"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold px-6 py-3 rounded-xl transition-colors"
               >
-                <a
-                  href="https://wa.me/5511999999999"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Chamar no WhatsApp
-                </a>
-              </Button>
+                <img src={whatsappIcon} alt="" className="w-7 h-7" />
+                Chamar no WhatsApp
+              </a>
             </div>
           </div>
 
