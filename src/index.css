@@ -168,7 +168,7 @@
   }
 
   .animate-pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
+    animation: pulseGlow 6s ease-in-out infinite;
   }
 
   .animate-shimmer {
