@@ -10,11 +10,11 @@ const Footer = () => {
           {/* Logo and About */}
           <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-              <div className="bg-white rounded-full p-2 sm:p-3 flex items-center justify-center">
+              <div className="bg-white rounded-full p-3 sm:p-4 flex items-center justify-center">
                 <img
                   src="/logo.png"
                   alt="Rental MG Empilhadeiras"
-                  className="h-12 sm:h-16 md:h-20 w-auto"
+                  className="h-16 sm:h-20 md:h-24 w-auto"
                 />
               </div>
               <span className="font-heading font-bold text-lg sm:text-xl">
