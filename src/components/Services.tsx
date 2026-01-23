@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import serviceMaintenanceImage from '@/assets/service-maintenance.jpg';
 import serviceRentalImage from '@/assets/service-rental.jpg';
 import servicePartsImage from '@/assets/service-parts.jpg';
+import bgServicesImage from '@/assets/bg-services.jpg';
 
 const Services = () => {
   const services = [
@@ -52,8 +53,15 @@ const Services = () => {
   };
 
   return (
-    <section id="servicos" className="section-padding bg-muted">
-      <div className="container-custom mx-auto">
+    <section id="servicos" className="section-padding relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bgServicesImage})` }}
+      />
+      <div className="absolute inset-0 bg-muted/95" />
+      
+      <div className="container-custom mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
