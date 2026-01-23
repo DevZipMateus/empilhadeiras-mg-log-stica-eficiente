@@ -32,11 +32,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-secondary/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md`}
     >
       <div className="container-custom mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -47,7 +43,7 @@ const Header = () => {
               alt="Rental MG Empilhadeiras"
               className="h-12 w-auto"
             />
-            <span className="text-primary-foreground font-heading font-bold text-lg hidden sm:block">
+            <span className="text-foreground font-heading font-bold text-lg hidden sm:block">
               Rental MG
             </span>
           </a>
@@ -58,7 +54,7 @@ const Header = () => {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="text-primary-foreground/80 hover:text-primary transition-colors font-medium"
+                className="text-foreground/80 hover:text-primary transition-colors font-medium"
               >
                 {link.label}
               </button>
@@ -77,7 +73,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-primary-foreground p-2"
+            className="md:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Menu"
           >
@@ -87,13 +83,13 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-secondary/95 backdrop-blur-md border-t border-primary/20">
+          <div className="md:hidden bg-white border-t border-border">
             <nav className="flex flex-col py-4">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-primary-foreground/80 hover:text-primary hover:bg-primary/10 transition-colors font-medium py-3 px-4 text-left"
+                  className="text-foreground/80 hover:text-primary hover:bg-primary/10 transition-colors font-medium py-3 px-4 text-left"
                 >
                   {link.label}
                 </button>
