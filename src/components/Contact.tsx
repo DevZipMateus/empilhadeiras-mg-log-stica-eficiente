@@ -2,8 +2,11 @@ import { Mail, Phone, MapPin, Clock, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import bgContactImage from '@/assets/bg-contact.jpg';
 import whatsappIcon from '@/assets/whatsapp-icon.png';
+import { useParallax } from '@/hooks/use-parallax';
 
 const Contact = () => {
+  const parallaxOffset = useParallax(0.3);
+  
   const contactInfo = [
     {
       icon: MapPin,
@@ -31,10 +34,13 @@ const Contact = () => {
 
   return (
     <section id="contato" className="section-padding relative overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with Parallax */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${bgContactImage})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+        style={{ 
+          backgroundImage: `url(${bgContactImage})`,
+          transform: `translateY(${parallaxOffset * -0.15}px) scale(1.1)`
+        }}
       />
       <div className="absolute inset-0 bg-muted/75" />
       

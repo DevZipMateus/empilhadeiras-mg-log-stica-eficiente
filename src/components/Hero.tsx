@@ -2,9 +2,11 @@ import { ArrowRight, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import heroBackground from '@/assets/hero-background.jpg';
+import { useParallax } from '@/hooks/use-parallax';
 
 const Hero = () => {
   const navigate = useNavigate();
+  const parallaxOffset = useParallax(0.4);
 
   const scrollToContact = () => {
     const element = document.querySelector('#contato');
@@ -22,10 +24,13 @@ const Hero = () => {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Background Image */}
+      {/* Background Image with Parallax */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+        style={{ 
+          backgroundImage: `url(${heroBackground})`,
+          transform: `translateY(${parallaxOffset * 0.5}px) scale(1.1)`
+        }}
       />
       
       {/* Dark Overlay for better text readability */}
