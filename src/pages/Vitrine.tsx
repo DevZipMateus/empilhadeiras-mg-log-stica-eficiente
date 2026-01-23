@@ -1,14 +1,23 @@
+import { useEffect } from 'react';
 import Header from '@/components/Header';
 
 const Vitrine = () => {
-  // O “Desenvolvido por MonteSite” vem de dentro do iframe (cross-origin),
-  // então não dá para remover via CSS/JS direto. A solução é ocultar (clip)
-  // exatamente a faixa inferior onde o badge aparece.
   const IFRAME_BADGE_HEIGHT_PX = 63;
   const HEADER_HEIGHT_PX = 80;
 
+  // Remove scroll da página enquanto estiver na vitrine
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, []);
+
   return (
-    <div className="h-screen w-full overflow-hidden flex flex-col">
+    <div className="h-screen w-full overflow-hidden flex flex-col fixed inset-0">
       <Header />
       
       {/* Spacer for fixed header */}
