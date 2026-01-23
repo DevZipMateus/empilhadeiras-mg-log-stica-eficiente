@@ -59,7 +59,7 @@ const Services = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${bgServicesImage})` }}
       />
-      <div className="absolute inset-0 bg-muted/95" />
+      <div className="absolute inset-0 bg-muted/70" />
       
       <div className="container-custom mx-auto relative z-10">
         {/* Section Header */}
