@@ -84,62 +84,62 @@ const Services = () => {
         </ScrollReveal>
 
         {/* Services Images Showcase */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <div className="relative rounded-2xl overflow-hidden group">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden group">
             <img 
               src={serviceRentalImage} 
               alt="Empilhadeira moderna disponível para locação" 
-              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent flex items-end p-4 sm:p-6">
               <div>
-                <Truck className="w-8 h-8 text-primary mb-2" />
-                <h3 className="font-heading text-lg font-bold text-secondary-foreground">Locação</h3>
+                <Truck className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-1 sm:mb-2" />
+                <h3 className="font-heading text-base sm:text-lg font-bold text-secondary-foreground">Locação</h3>
               </div>
             </div>
           </div>
-          <div className="relative rounded-2xl overflow-hidden group">
+          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden group">
             <img 
               src={serviceMaintenanceImage} 
               alt="Técnico realizando manutenção em empilhadeira" 
-              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent flex items-end p-4 sm:p-6">
               <div>
-                <Wrench className="w-8 h-8 text-primary mb-2" />
-                <h3 className="font-heading text-lg font-bold text-secondary-foreground">Manutenção</h3>
+                <Wrench className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-1 sm:mb-2" />
+                <h3 className="font-heading text-base sm:text-lg font-bold text-secondary-foreground">Manutenção</h3>
               </div>
             </div>
           </div>
-          <div className="relative rounded-2xl overflow-hidden group">
+          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden group sm:col-span-2 md:col-span-1">
             <img 
               src={servicePartsImage} 
               alt="Estoque de peças e componentes para empilhadeiras" 
-              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent flex items-end p-4 sm:p-6">
               <div>
-                <Cog className="w-8 h-8 text-primary mb-2" />
-                <h3 className="font-heading text-lg font-bold text-secondary-foreground">Peças</h3>
+                <Cog className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-1 sm:mb-2" />
+                <h3 className="font-heading text-base sm:text-lg font-bold text-secondary-foreground">Peças</h3>
               </div>
             </div>
           </div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {services.map((service, index) => (
             <ScrollReveal key={index} delay={index * 80} className="h-full">
               <div
-                className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-8 rounded-2xl hover-lift group h-full"
+                className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl hover-lift group h-full"
               >
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-primary group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
-                <h3 className="font-heading text-xl font-bold text-foreground mb-3">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                   {service.description}
                 </p>
               </div>
@@ -148,13 +148,13 @@ const Services = () => {
         </div>
 
         {/* Paleteiras Section */}
-        <div className="bg-secondary text-secondary-foreground p-8 md:p-12 rounded-3xl">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4">
+        <div className="bg-secondary text-secondary-foreground p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
+            <div className="text-center md:text-left">
+              <h3 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
                 Manutenção de paleteiras
               </h3>
-              <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
+              <p className="text-secondary-foreground/80 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                 Também oferecemos manutenção especializada para paleteiras
                 manuais e elétricas. Nossa equipe técnica está preparada para
                 atender todos os modelos e marcas do mercado.
@@ -162,16 +162,16 @@ const Services = () => {
               <Button
                 size="lg"
                 onClick={scrollToContact}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold w-full sm:w-auto"
               >
                 Solicitar orçamento
               </Button>
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center order-first md:order-last">
               <div className="relative">
-                <div className="w-48 h-48 md:w-64 md:h-64 bg-primary/20 rounded-full flex items-center justify-center">
-                  <div className="w-36 h-36 md:w-48 md:h-48 bg-primary/30 rounded-full flex items-center justify-center">
-                    <Truck className="w-20 h-20 md:w-28 md:h-28 text-primary" />
+                <div className="w-36 h-36 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-primary/20 rounded-full flex items-center justify-center">
+                  <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 bg-primary/30 rounded-full flex items-center justify-center">
+                    <Truck className="w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 text-primary" />
                   </div>
                 </div>
               </div>
