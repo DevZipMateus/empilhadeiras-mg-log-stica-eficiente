@@ -1,4 +1,5 @@
 import { Target, Eye, Heart, Leaf, TrendingUp, Users } from 'lucide-react';
+import aboutImage from '@/assets/about-image.jpg';
 
 const About = () => {
   const values = [
@@ -43,7 +44,7 @@ const About = () => {
 
         {/* História */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          <div>
+          <div className="order-2 lg:order-1">
             <h3 className="font-heading text-2xl font-bold text-foreground mb-6">
               Nossa história
             </h3>
@@ -64,38 +65,51 @@ const About = () => {
             </p>
           </div>
 
-          {/* Missão e Visão Cards */}
-          <div className="space-y-6">
-            <div className="bg-secondary text-secondary-foreground p-8 rounded-2xl card-hover">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                  <Target className="w-6 h-6 text-primary" />
-                </div>
-                <h4 className="font-heading text-xl font-bold">Nossa missão</h4>
-              </div>
-              <p className="text-secondary-foreground/80 leading-relaxed">
-                Oferecer empilhadeiras e paleteiras, bem como serviços de
-                manutenção que efetivem a qualidade da logística das empresas da
-                grande São Paulo.
-              </p>
-            </div>
-
-            <div className="bg-muted p-8 rounded-2xl card-hover">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                  <Eye className="w-6 h-6 text-primary" />
-                </div>
-                <h4 className="font-heading text-xl font-bold text-foreground">
-                  Nossa visão
-                </h4>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Ser referência em soluções de movimentação de cargas,
-                reconhecidos pela excelência em atendimento e qualidade dos
-                nossos serviços.
-              </p>
+          {/* Imagem da empresa */}
+          <div className="order-1 lg:order-2">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src={aboutImage} 
+                alt="Equipe Rental MG trabalhando com empilhadeiras em armazém moderno" 
+                className="w-full h-80 lg:h-96 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent" />
             </div>
           </div>
+        </div>
+
+        {/* Missão e Visão */}
+        <div className="grid lg:grid-cols-2 gap-6 mb-20">
+          <div className="bg-secondary text-secondary-foreground p-8 rounded-2xl card-hover">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                <Target className="w-6 h-6 text-primary" />
+              </div>
+              <h4 className="font-heading text-xl font-bold">Nossa missão</h4>
+            </div>
+            <p className="text-secondary-foreground/80 leading-relaxed">
+              Oferecer empilhadeiras e paleteiras, bem como serviços de
+              manutenção que efetivem a qualidade da logística das empresas da
+              grande São Paulo.
+            </p>
+          </div>
+
+          <div className="bg-muted p-8 rounded-2xl card-hover">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                <Eye className="w-6 h-6 text-primary" />
+              </div>
+              <h4 className="font-heading text-xl font-bold text-foreground">
+                Nossa visão
+              </h4>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              Ser referência em soluções de movimentação de cargas,
+              reconhecidos pela excelência em atendimento e qualidade dos
+              nossos serviços.
+            </p>
+          </div>
+
         </div>
 
         {/* Valores */}
