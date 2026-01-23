@@ -133,6 +133,22 @@
     @apply bg-white/10 backdrop-blur-md border border-white/20;
   }
 
+  .glass-light {
+    @apply bg-white/70 backdrop-blur-xl border border-white/30 shadow-lg;
+  }
+
+  .glass-dark {
+    @apply bg-secondary/70 backdrop-blur-xl border border-white/10 shadow-lg;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg border border-white/40 shadow-xl;
+  }
+
+  .glass-badge {
+    @apply bg-white/20 backdrop-blur-sm border border-white/30;
+  }
+
   .card-hover {
     @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
   }

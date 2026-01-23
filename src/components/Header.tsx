@@ -55,7 +55,7 @@ const Header = () => {
     navigate('/vitrine');
     setIsMobileMenuOpen(false);
   };
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md`}>
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/20' : 'bg-white/60 backdrop-blur-lg'}`}>
       <div className="container-custom mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -112,7 +112,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-border">
+          <div className="md:hidden bg-white/90 backdrop-blur-xl border-t border-white/20">
             <nav className="flex flex-col py-4">
               {navLinks.map(link => (
                 <button 

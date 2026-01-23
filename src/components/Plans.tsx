@@ -51,9 +51,9 @@ const Plans = () => {
 
         {/* Plan Card */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-secondary text-secondary-foreground rounded-3xl overflow-hidden shadow-2xl">
+          <div className="bg-secondary/90 backdrop-blur-xl text-secondary-foreground rounded-3xl overflow-hidden shadow-2xl border border-white/10">
             {/* Card Header */}
-            <div className="bg-primary/20 p-8 text-center border-b border-primary/20">
+            <div className="bg-white/10 backdrop-blur-md p-8 text-center border-b border-white/10">
               <h3 className="font-heading text-2xl md:text-3xl font-bold mb-2">
                 Contrato personalizado
               </h3>

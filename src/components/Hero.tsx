@@ -38,8 +38,8 @@ const Hero = () => {
 
       <div className="container-custom mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/30 rounded-full px-4 py-2 mb-8 animate-fade-in">
+          {/* Badge with Glass Effect */}
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-8 animate-fade-in">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
             <span className="text-primary text-sm font-medium">
               Mais de 5 anos de experiência
@@ -85,7 +85,7 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-16 pt-10 border-t border-primary/20 animate-fade-in">
+          <div className="grid grid-cols-3 gap-8 mt-16 pt-10 border-t border-white/20 animate-fade-in bg-white/5 backdrop-blur-sm rounded-2xl p-6">
             <div className="text-center">
               <p className="text-3xl md:text-4xl font-bold text-primary font-heading">
                 5+

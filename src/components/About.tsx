@@ -80,7 +80,7 @@ const About = () => {
 
         {/* Missão e Visão */}
         <div className="grid lg:grid-cols-2 gap-6 mb-20">
-          <div className="bg-secondary text-secondary-foreground p-8 rounded-2xl card-hover">
+          <div className="bg-secondary/90 backdrop-blur-lg text-secondary-foreground p-8 rounded-2xl card-hover border border-white/10">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
                 <Target className="w-6 h-6 text-primary" />
@@ -94,7 +94,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="bg-muted p-8 rounded-2xl card-hover">
+          <div className="bg-white/80 backdrop-blur-lg p-8 rounded-2xl card-hover border border-white/40 shadow-xl">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
                 <Eye className="w-6 h-6 text-primary" />
@@ -121,7 +121,7 @@ const About = () => {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-card border border-border p-6 rounded-2xl text-center card-hover group"
+                className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-6 rounded-2xl text-center card-hover group"
               >
                 <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                   <value.icon className="w-7 h-7 text-primary" />
