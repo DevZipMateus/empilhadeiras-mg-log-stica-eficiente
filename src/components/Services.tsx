@@ -4,8 +4,11 @@ import serviceMaintenanceImage from '@/assets/service-maintenance.jpg';
 import serviceRentalImage from '@/assets/service-rental.jpg';
 import servicePartsImage from '@/assets/service-parts.jpg';
 import bgServicesImage from '@/assets/bg-services.jpg';
+import { useParallax } from '@/hooks/use-parallax';
 
 const Services = () => {
+  const parallaxOffset = useParallax(0.3);
+  
   const services = [
     {
       icon: Truck,
@@ -54,10 +57,13 @@ const Services = () => {
 
   return (
     <section id="servicos" className="section-padding relative overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with Parallax */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${bgServicesImage})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+        style={{ 
+          backgroundImage: `url(${bgServicesImage})`,
+          transform: `translateY(${parallaxOffset * -0.2}px) scale(1.1)`
+        }}
       />
       <div className="absolute inset-0 bg-muted/70" />
       

@@ -1,8 +1,11 @@
 import { Check, Calendar, Shield, Wrench } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import bgPlansImage from '@/assets/bg-plans.jpg';
+import { useParallax } from '@/hooks/use-parallax';
 
 const Plans = () => {
+  const parallaxOffset = useParallax(0.3);
+  
   const benefits = [
     'Visitas agendadas mensalmente',
     'Fornecimento de itens preventivos',
@@ -21,10 +24,13 @@ const Plans = () => {
 
   return (
     <section id="planos" className="section-padding relative overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with Parallax */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${bgPlansImage})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+        style={{ 
+          backgroundImage: `url(${bgPlansImage})`,
+          transform: `translateY(${parallaxOffset * -0.15}px) scale(1.1)`
+        }}
       />
       <div className="absolute inset-0 bg-secondary/70" />
       
