@@ -1,5 +1,6 @@
 import { Check, Calendar, Shield, Wrench } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import bgPlansImage from '@/assets/bg-plans.jpg';
 
 const Plans = () => {
   const benefits = [
@@ -19,17 +20,24 @@ const Plans = () => {
   };
 
   return (
-    <section id="planos" className="section-padding bg-background">
-      <div className="container-custom mx-auto">
+    <section id="planos" className="section-padding relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bgPlansImage})` }}
+      />
+      <div className="absolute inset-0 bg-secondary/90" />
+      
+      <div className="container-custom mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Contrate
           </span>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-secondary-foreground mb-6">
             Contratos de manutenção
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-secondary-foreground/80 max-w-2xl mx-auto">
             Mantenha seus equipamentos sempre em perfeito funcionamento com
             nossos contratos de manutenção personalizados.
           </p>

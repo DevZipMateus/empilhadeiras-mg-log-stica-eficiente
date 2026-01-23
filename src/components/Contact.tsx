@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Clock, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import bgContactImage from '@/assets/bg-contact.jpg';
 
 const Contact = () => {
   const contactInfo = [
@@ -28,8 +29,15 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contato" className="section-padding bg-muted">
-      <div className="container-custom mx-auto">
+    <section id="contato" className="section-padding relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bgContactImage})` }}
+      />
+      <div className="absolute inset-0 bg-muted/95" />
+      
+      <div className="container-custom mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
