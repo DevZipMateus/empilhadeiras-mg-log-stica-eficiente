@@ -9,12 +9,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-12">
           {/* Logo and About */}
           <div className="sm:col-span-2 lg:col-span-2">
-            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-              <img
-                src="/logo.png"
-                alt="Rental MG Empilhadeiras"
-                className="h-10 sm:h-14 w-auto"
-              />
+            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+              <div className="bg-white rounded-full p-2 sm:p-3 flex items-center justify-center">
+                <img
+                  src="/logo.png"
+                  alt="Rental MG Empilhadeiras"
+                  className="h-12 sm:h-16 md:h-20 w-auto"
+                />
+              </div>
               <span className="font-heading font-bold text-lg sm:text-xl">
                 Rental MG Empilhadeiras
               </span>
