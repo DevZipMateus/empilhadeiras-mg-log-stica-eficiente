@@ -95,7 +95,7 @@ const Contact = () => {
             </div>
 
             {/* WhatsApp CTA */}
-            <div className="mt-10 p-6 bg-secondary rounded-2xl">
+            <div className="mt-10 p-6 bg-secondary/90 backdrop-blur-lg rounded-2xl border border-white/10">
               <h4 className="font-heading text-xl font-bold text-secondary-foreground mb-2">
                 Atendimento rápido via WhatsApp
               </h4>
@@ -116,7 +116,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form - Depoimentos */}
-          <div className="bg-card border border-border rounded-2xl p-8">
+          <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-xl rounded-2xl p-8">
             <h3 className="font-heading text-2xl font-bold text-foreground mb-6">
               Deixe seu depoimento
             </h3>
