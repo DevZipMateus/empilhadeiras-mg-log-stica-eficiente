@@ -1,5 +1,8 @@
 import { Truck, Wrench, ShoppingBag, RefreshCw, ClipboardCheck, Cog } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import serviceMaintenanceImage from '@/assets/service-maintenance.jpg';
+import serviceRentalImage from '@/assets/service-rental.jpg';
+import servicePartsImage from '@/assets/service-parts.jpg';
 
 const Services = () => {
   const services = [
@@ -63,6 +66,49 @@ const Services = () => {
             Soluções completas em empilhadeiras e paleteiras para sua empresa.
             Da locação à manutenção, cuidamos de tudo para você.
           </p>
+        </div>
+
+        {/* Services Images Showcase */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="relative rounded-2xl overflow-hidden group">
+            <img 
+              src={serviceRentalImage} 
+              alt="Empilhadeira moderna disponível para locação" 
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent flex items-end p-6">
+              <div>
+                <Truck className="w-8 h-8 text-primary mb-2" />
+                <h3 className="font-heading text-lg font-bold text-secondary-foreground">Locação</h3>
+              </div>
+            </div>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden group">
+            <img 
+              src={serviceMaintenanceImage} 
+              alt="Técnico realizando manutenção em empilhadeira" 
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent flex items-end p-6">
+              <div>
+                <Wrench className="w-8 h-8 text-primary mb-2" />
+                <h3 className="font-heading text-lg font-bold text-secondary-foreground">Manutenção</h3>
+              </div>
+            </div>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden group">
+            <img 
+              src={servicePartsImage} 
+              alt="Estoque de peças e componentes para empilhadeiras" 
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent flex items-end p-6">
+              <div>
+                <Cog className="w-8 h-8 text-primary mb-2" />
+                <h3 className="font-heading text-lg font-bold text-secondary-foreground">Peças</h3>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Services Grid */}
