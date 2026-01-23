@@ -2,6 +2,7 @@ import { Check, Calendar, Shield, Wrench } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import bgPlansImage from '@/assets/bg-plans.jpg';
 import { useParallax } from '@/hooks/use-parallax';
+import { ScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const Plans = () => {
   const parallaxOffset = useParallax(0.3);
@@ -36,7 +37,7 @@ const Plans = () => {
       
       <div className="container-custom mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Contrate
           </span>
@@ -47,11 +48,11 @@ const Plans = () => {
             Mantenha seus equipamentos sempre em perfeito funcionamento com
             nossos contratos de manutenção personalizados.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Plan Card */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-secondary/90 backdrop-blur-xl text-secondary-foreground rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+        <ScrollReveal className="max-w-4xl mx-auto">
+          <div className="bg-secondary/90 backdrop-blur-xl text-secondary-foreground rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover-scale-subtle">
             {/* Card Header */}
             <div className="bg-white/10 backdrop-blur-md p-8 text-center border-b border-white/10">
               <h3 className="font-heading text-2xl md:text-3xl font-bold mb-2">
@@ -129,7 +130,7 @@ const Plans = () => {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

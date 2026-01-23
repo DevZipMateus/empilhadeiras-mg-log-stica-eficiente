@@ -1,5 +1,6 @@
 import { Target, Eye, Heart, Leaf, TrendingUp, Users } from 'lucide-react';
 import aboutImage from '@/assets/about-image.jpg';
+import { ScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const About = () => {
   const values = [
@@ -29,7 +30,7 @@ const About = () => {
     <section id="sobre" className="section-padding bg-background">
       <div className="container-custom mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Quem somos
           </span>
@@ -40,7 +41,7 @@ const About = () => {
             Uma empresa que nasceu da determinação e do sonho de fazer a
             diferença no mercado de movimentação de cargas.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* História */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -66,16 +67,16 @@ const About = () => {
           </div>
 
           {/* Imagem da empresa */}
-          <div className="order-1 lg:order-2">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+          <ScrollReveal className="order-1 lg:order-2" direction="right">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl hover-lift group">
               <img 
                 src={aboutImage} 
                 alt="Equipe Rental MG trabalhando com empilhadeiras em armazém moderno" 
-                className="w-full h-80 lg:h-96 object-cover"
+                className="w-full h-80 lg:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent" />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Missão e Visão */}
@@ -113,27 +114,32 @@ const About = () => {
         </div>
 
         {/* Valores */}
-        <div>
+        <ScrollReveal>
           <h3 className="font-heading text-2xl font-bold text-foreground text-center mb-12">
             Nossos valores
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <div
+              <ScrollReveal
                 key={index}
-                className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-6 rounded-2xl text-center card-hover group"
+                delay={index * 100}
+                className="h-full"
               >
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                  <value.icon className="w-7 h-7 text-primary" />
+                <div
+                  className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-6 rounded-2xl text-center hover-lift group h-full"
+                >
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <value.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                  </div>
+                  <h4 className="font-heading font-bold text-foreground mb-2">
+                    {value.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm">{value.description}</p>
                 </div>
-                <h4 className="font-heading font-bold text-foreground mb-2">
-                  {value.title}
-                </h4>
-                <p className="text-muted-foreground text-sm">{value.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

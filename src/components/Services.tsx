@@ -5,6 +5,7 @@ import serviceRentalImage from '@/assets/service-rental.jpg';
 import servicePartsImage from '@/assets/service-parts.jpg';
 import bgServicesImage from '@/assets/bg-services.jpg';
 import { useParallax } from '@/hooks/use-parallax';
+import { ScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const Services = () => {
   const parallaxOffset = useParallax(0.3);
@@ -69,7 +70,7 @@ const Services = () => {
       
       <div className="container-custom mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             O que fazemos
           </span>
@@ -80,7 +81,7 @@ const Services = () => {
             Soluções completas em empilhadeiras e paleteiras para sua empresa.
             Da locação à manutenção, cuidamos de tudo para você.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Services Images Showcase */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -128,20 +129,21 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-8 rounded-2xl card-hover group"
-            >
-              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+            <ScrollReveal key={index} delay={index * 80} className="h-full">
+              <div
+                className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-8 rounded-2xl hover-lift group h-full"
+              >
+                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                </div>
+                <h3 className="font-heading text-xl font-bold text-foreground mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="font-heading text-xl font-bold text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

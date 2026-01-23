@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import bgContactImage from '@/assets/bg-contact.jpg';
 import whatsappIcon from '@/assets/whatsapp-icon.png';
 import { useParallax } from '@/hooks/use-parallax';
+import { ScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const Contact = () => {
   const parallaxOffset = useParallax(0.3);
@@ -46,7 +47,7 @@ const Contact = () => {
       
       <div className="container-custom mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Fale conosco
           </span>
@@ -58,11 +59,11 @@ const Contact = () => {
             solicitar orçamentos, tirar dúvidas ou conhecer mais sobre nossos
             serviços.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
-          <div>
+          <ScrollReveal direction="left">
             <h3 className="font-heading text-2xl font-bold text-foreground mb-8">
               Informações de contato
             </h3>
@@ -113,10 +114,11 @@ const Contact = () => {
                 Chamar no WhatsApp
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Contact Form - Depoimentos */}
-          <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-xl rounded-2xl p-8">
+          <ScrollReveal direction="right">
+            <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-xl rounded-2xl p-8 hover-scale-subtle">
             <h3 className="font-heading text-2xl font-bold text-foreground mb-6">
               Deixe seu depoimento
             </h3>
@@ -231,7 +233,8 @@ const Contact = () => {
                 Enviar depoimento
               </Button>
             </form>
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
