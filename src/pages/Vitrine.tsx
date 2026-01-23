@@ -1,32 +1,11 @@
-import { useEffect } from 'react';
 import Header from '@/components/Header';
 
 const Vitrine = () => {
-  useEffect(() => {
-    // Hide the Lovable badge on this page
-    const style = document.createElement('style');
-    style.id = 'hide-lovable-badge';
-    style.textContent = `
-      [id*="lovable"], 
-      [class*="lovable-badge"],
-      a[href*="lovable.dev"],
-      div[style*="position: fixed"][style*="bottom"] a[href*="lovable"] {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-    `;
-    document.head.appendChild(style);
-
-    return () => {
-      // Remove style when leaving the page
-      const styleEl = document.getElementById('hide-lovable-badge');
-      if (styleEl) {
-        styleEl.remove();
-      }
-    };
-  }, []);
+  // O “Desenvolvido por MonteSite” vem de dentro do iframe (cross-origin),
+  // então não dá para remover via CSS/JS direto. A solução é ocultar (clip)
+  // exatamente a faixa inferior onde o badge aparece.
+  const IFRAME_BADGE_HEIGHT_PX = 63;
+  const HEADER_HEIGHT_PX = 80;
 
   return (
     <div className="h-screen w-full overflow-hidden flex flex-col">
@@ -37,15 +16,29 @@ const Vitrine = () => {
       
       {/* Main content - iframe */}
       <main 
-        className="flex-1 w-full"
-        style={{ height: 'calc(100vh - 80px)' }}
+        className="flex-1 w-full overflow-hidden relative isolate"
+        style={{ height: `calc(100vh - ${HEADER_HEIGHT_PX}px)` }}
       >
         <iframe 
           src="https://rentalempilhadeirasemanutencoesltda.egestor.com.br/vitrine/"
-          className="w-full h-full border-none"
+          className="w-full h-full border-none relative z-0"
           title="Demonstração de Vitrine"
         />
+
+        {/* Cobre o badge fixo no rodapé do conteúdo do iframe */}
+        <div
+          aria-hidden
+          className="absolute bottom-0 left-0 right-0 z-50 bg-background pointer-events-none"
+          style={{ height: IFRAME_BADGE_HEIGHT_PX }}
+        />
       </main>
+
+      {/* Overlay fixo para garantir que a faixa inferior fique sempre coberta */}
+      <div
+        aria-hidden
+        className="fixed bottom-0 left-0 right-0 bg-background pointer-events-none z-[9999]"
+        style={{ height: IFRAME_BADGE_HEIGHT_PX }}
+      />
     </div>
   );
 };
