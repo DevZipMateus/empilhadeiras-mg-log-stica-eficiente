@@ -26,7 +26,7 @@ const Plans = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${bgPlansImage})` }}
       />
-      <div className="absolute inset-0 bg-secondary/90" />
+      <div className="absolute inset-0 bg-secondary/70" />
       
       <div className="container-custom mx-auto relative z-10">
         {/* Section Header */}
