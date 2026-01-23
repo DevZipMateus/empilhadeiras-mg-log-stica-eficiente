@@ -1,13 +1,20 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 import heroBackground from '@/assets/hero-background.jpg';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const scrollToContact = () => {
     const element = document.querySelector('#contato');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const goToVitrine = () => {
+    navigate('/vitrine');
   };
 
   return (
@@ -64,14 +71,11 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              onClick={() =>
-                document
-                  .querySelector('#servicos')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
-              className="border-primary/60 text-primary hover:bg-primary/10 hover:text-primary font-semibold text-lg px-8 py-6"
+              onClick={goToVitrine}
+              className="border-primary/60 text-primary hover:bg-primary/10 hover:text-primary font-semibold text-lg px-8 py-6 group"
             >
-              Nossos serviços
+              <ShoppingBag className="mr-2 h-5 w-5" />
+              Ver Vitrine
             </Button>
           </div>
 

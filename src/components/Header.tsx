@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -11,6 +16,7 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   const navLinks = [{
     href: '#inicio',
     label: 'Início'
@@ -28,12 +34,25 @@ const Header = () => {
     label: 'Contato'
   }];
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+    setIsMobileMenuOpen(false);
+  };
+
+  const goToVitrine = () => {
+    navigate('/vitrine');
     setIsMobileMenuOpen(false);
   };
   return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md`}>
@@ -49,14 +68,38 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map(link => <button key={link.href} onClick={() => scrollToSection(link.href)} className="text-foreground/80 hover:text-primary transition-colors font-medium">
+            {navLinks.map(link => (
+              <button 
+                key={link.href} 
+                onClick={() => scrollToSection(link.href)} 
+                className="text-foreground/80 hover:text-primary transition-colors font-medium"
+              >
                 {link.label}
-              </button>)}
+              </button>
+            ))}
+            <button 
+              onClick={goToVitrine}
+              className="text-foreground/80 hover:text-primary transition-colors font-medium flex items-center gap-1"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              Vitrine
+            </button>
           </nav>
 
-          {/* CTA Button Desktop */}
-          <div className="hidden md:block">
-            <Button onClick={() => scrollToSection('#contato')} className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+          {/* CTA Buttons Desktop */}
+          <div className="hidden md:flex items-center gap-3">
+            <Button 
+              onClick={goToVitrine} 
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/10 font-semibold"
+            >
+              <ShoppingBag className="w-4 h-4 mr-2" />
+              Vitrine
+            </Button>
+            <Button 
+              onClick={() => scrollToSection('#contato')} 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+            >
               Fale conosco
             </Button>
           </div>
@@ -68,18 +111,44 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && <div className="md:hidden bg-white border-t border-border">
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-border">
             <nav className="flex flex-col py-4">
-              {navLinks.map(link => <button key={link.href} onClick={() => scrollToSection(link.href)} className="text-foreground/80 hover:text-primary hover:bg-primary/10 transition-colors font-medium py-3 px-4 text-left">
+              {navLinks.map(link => (
+                <button 
+                  key={link.href} 
+                  onClick={() => scrollToSection(link.href)} 
+                  className="text-foreground/80 hover:text-primary hover:bg-primary/10 transition-colors font-medium py-3 px-4 text-left"
+                >
                   {link.label}
-                </button>)}
-              <div className="px-4 pt-4">
-                <Button onClick={() => scrollToSection('#contato')} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                </button>
+              ))}
+              <button 
+                onClick={goToVitrine}
+                className="text-foreground/80 hover:text-primary hover:bg-primary/10 transition-colors font-medium py-3 px-4 text-left flex items-center gap-2"
+              >
+                <ShoppingBag className="w-4 h-4" />
+                Vitrine
+              </button>
+              <div className="px-4 pt-4 space-y-3">
+                <Button 
+                  onClick={goToVitrine} 
+                  variant="outline"
+                  className="w-full border-primary text-primary hover:bg-primary/10 font-semibold"
+                >
+                  <ShoppingBag className="w-4 h-4 mr-2" />
+                  Ver Vitrine
+                </Button>
+                <Button 
+                  onClick={() => scrollToSection('#contato')} 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                >
                   Fale conosco
                 </Button>
               </div>
             </nav>
-          </div>}
+          </div>
+        )}
       </div>
     </header>;
 };
