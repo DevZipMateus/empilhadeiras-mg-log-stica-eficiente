@@ -1,6 +1,33 @@
+import { useEffect } from 'react';
 import Header from '@/components/Header';
 
 const Vitrine = () => {
+  useEffect(() => {
+    // Hide the Lovable badge on this page
+    const style = document.createElement('style');
+    style.id = 'hide-lovable-badge';
+    style.textContent = `
+      [id*="lovable"], 
+      [class*="lovable-badge"],
+      a[href*="lovable.dev"],
+      div[style*="position: fixed"][style*="bottom"] a[href*="lovable"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      // Remove style when leaving the page
+      const styleEl = document.getElementById('hide-lovable-badge');
+      if (styleEl) {
+        styleEl.remove();
+      }
+    };
+  }, []);
+
   return (
     <div className="h-screen w-full overflow-hidden flex flex-col">
       <Header />
@@ -11,7 +38,7 @@ const Vitrine = () => {
       {/* Main content - iframe */}
       <main 
         className="flex-1 w-full"
-        style={{ height: 'calc(100vh - 80px - 63px)' }}
+        style={{ height: 'calc(100vh - 80px)' }}
       >
         <iframe 
           src="https://rentalempilhadeirasemanutencoesltda.egestor.com.br/vitrine/"
@@ -19,9 +46,6 @@ const Vitrine = () => {
           title="Demonstração de Vitrine"
         />
       </main>
-      
-      {/* Badge space */}
-      <div className="h-[63px] flex-shrink-0" />
     </div>
   );
 };
