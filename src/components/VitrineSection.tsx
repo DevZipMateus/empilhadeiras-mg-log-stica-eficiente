@@ -1,6 +1,9 @@
 import { ShoppingBag, ArrowRight, Truck, Shield, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import bgVitrineImage from '@/assets/bg-vitrine.jpg';
+import forkliftOperatorImage from '@/assets/forklift-operator.jpg';
+import palletJackImage from '@/assets/pallet-jack.jpg';
 
 const VitrineSection = () => {
   const navigate = useNavigate();
@@ -28,10 +31,13 @@ const VitrineSection = () => {
   ];
 
   return (
-    <section id="vitrine" className="section-padding bg-gradient-to-br from-primary/10 via-background to-primary/5 relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+    <section id="vitrine" className="section-padding relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bgVitrineImage})` }}
+      />
+      <div className="absolute inset-0 bg-background/75" />
       
       <div className="container-custom mx-auto relative z-10">
         {/* Section Header */}
@@ -52,12 +58,48 @@ const VitrineSection = () => {
           </p>
         </div>
 
+        {/* Image Gallery */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="relative rounded-xl overflow-hidden shadow-lg group">
+            <img 
+              src={forkliftOperatorImage} 
+              alt="Operador de empilhadeira profissional" 
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <h3 className="font-heading font-bold text-secondary-foreground text-lg">
+                Operação Segura
+              </h3>
+              <p className="text-secondary-foreground/80 text-sm">
+                Equipamentos confiáveis para sua operação
+              </p>
+            </div>
+          </div>
+          <div className="relative rounded-xl overflow-hidden shadow-lg group">
+            <img 
+              src={palletJackImage} 
+              alt="Paleteira elétrica moderna" 
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <h3 className="font-heading font-bold text-secondary-foreground text-lg">
+                Equipamentos Modernos
+              </h3>
+              <p className="text-secondary-foreground/80 text-sm">
+                Paleteiras e empilhadeiras de última geração
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Features Grid */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+              className="bg-card/90 backdrop-blur-sm border border-border rounded-xl p-6 text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300"
             >
               <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <feature.icon className="w-7 h-7 text-primary" />
