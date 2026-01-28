@@ -147,7 +147,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="company"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2"
                   >
                     Empresa *
                   </label>
@@ -155,17 +155,17 @@ const Contact = () => {
                     type="text"
                     id="company"
                     required
-                    className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-background border border-border rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors text-sm sm:text-base"
                     placeholder="Nome da empresa"
                   />
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2"
                   >
                     E-mail *
                   </label>
@@ -173,14 +173,14 @@ const Contact = () => {
                     type="email"
                     id="email"
                     required
-                    className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-background border border-border rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors text-sm sm:text-base"
                     placeholder="seu@email.com"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2"
                   >
                     Celular *
                   </label>
@@ -188,7 +188,7 @@ const Contact = () => {
                     type="tel"
                     id="phone"
                     required
-                    className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-background border border-border rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors text-sm sm:text-base"
                     placeholder="(11) 99999-9999"
                   />
                 </div>
@@ -197,14 +197,14 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="orderNumber"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2"
                 >
                   Número do pedido
                 </label>
                 <input
                   type="text"
                   id="orderNumber"
-                  className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-background border border-border rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors text-sm sm:text-base"
                   placeholder="Ex: 12345"
                 />
               </div>
@@ -212,7 +212,7 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="testimonial"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2"
                 >
                   Seu depoimento *
                 </label>
@@ -220,7 +220,7 @@ const Contact = () => {
                   id="testimonial"
                   rows={4}
                   required
-                  className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-none"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-background border border-border rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-none text-sm sm:text-base"
                   placeholder="Conte-nos sobre sua experiência..."
                 />
               </div>
@@ -228,7 +228,7 @@ const Contact = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm sm:text-base"
               >
                 Enviar depoimento
               </Button>

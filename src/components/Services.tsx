@@ -68,16 +68,16 @@ const Services = () => {
       />
       <div className="absolute inset-0 bg-muted/70" />
       
-      <div className="container-custom mx-auto relative z-10">
+      <div className="container-custom mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <ScrollReveal className="text-center mb-16">
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
+        <ScrollReveal className="text-center mb-10 sm:mb-16">
+          <span className="inline-block text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-4">
             O que fazemos
           </span>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">
             Nossos serviços
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base px-2">
             Soluções completas em empilhadeiras e paleteiras para sua empresa.
             Da locação à manutenção, cuidamos de tudo para você.
           </p>
