@@ -114,10 +114,10 @@ const About = () => {
 
         {/* Valores */}
         <ScrollReveal>
-          <h3 className="font-heading text-2xl font-bold text-foreground text-center mb-12">
+          <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground text-center mb-8 sm:mb-12">
             Nossos valores
           </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {values.map((value, index) => (
               <ScrollReveal
                 key={index}
@@ -125,15 +125,15 @@ const About = () => {
                 className="h-full"
               >
                 <div
-                  className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-6 rounded-2xl text-center hover-lift group h-full"
+                  className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-4 sm:p-6 rounded-xl sm:rounded-2xl text-center hover-lift group h-full"
                 >
-                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                    <value.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 bg-primary/10 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <value.icon className="w-5 h-5 sm:w-7 sm:h-7 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
-                  <h4 className="font-heading font-bold text-foreground mb-2">
+                  <h4 className="font-heading font-bold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
                     {value.title}
                   </h4>
-                  <p className="text-muted-foreground text-sm">{value.description}</p>
+                  <p className="text-muted-foreground text-xs sm:text-sm">{value.description}</p>
                 </div>
               </ScrollReveal>
             ))}
