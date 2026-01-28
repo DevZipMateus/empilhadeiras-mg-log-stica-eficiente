@@ -72,14 +72,14 @@ const Header = () => {
               <button 
                 key={link.href} 
                 onClick={() => scrollToSection(link.href)} 
-                className="text-foreground/80 hover:text-primary transition-colors font-medium text-sm xl:text-base"
+                className="text-foreground/80 hover:text-primary transition-colors font-medium text-sm xl:text-base story-link"
               >
                 {link.label}
               </button>
             ))}
             <button 
               onClick={goToVitrine}
-              className="text-foreground/80 hover:text-primary transition-colors font-medium flex items-center gap-1 text-sm xl:text-base"
+              className="text-foreground/80 hover:text-primary transition-colors font-medium flex items-center gap-1 text-sm xl:text-base story-link"
             >
               <ShoppingBag className="w-4 h-4" />
               Vitrine
@@ -92,7 +92,7 @@ const Header = () => {
               onClick={goToVitrine} 
               variant="outline"
               size="sm"
-              className="border-primary text-primary hover:bg-primary/10 font-semibold text-sm"
+              className="border-primary text-primary hover:bg-primary/10 font-semibold text-sm transition-all duration-300 hover:scale-105"
             >
               <ShoppingBag className="w-4 h-4 mr-1.5" />
               Vitrine
@@ -100,7 +100,7 @@ const Header = () => {
             <Button 
               onClick={() => scrollToSection('#contato')} 
               size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm transition-all duration-300 hover:scale-105 hover-glow"
             >
               Fale conosco
             </Button>

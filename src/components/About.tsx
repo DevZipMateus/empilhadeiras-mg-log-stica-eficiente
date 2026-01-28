@@ -125,12 +125,12 @@ const About = () => {
                 className="h-full"
               >
                 <div
-                  className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-4 sm:p-6 rounded-xl sm:rounded-2xl text-center hover-lift group h-full"
+                  className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-4 sm:p-6 rounded-xl sm:rounded-2xl text-center hover-lift group h-full glow-border"
                 >
                   <div className="w-10 h-10 sm:w-14 sm:h-14 bg-primary/10 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                    <value.icon className="w-5 h-5 sm:w-7 sm:h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                    <value.icon className="w-5 h-5 sm:w-7 sm:h-7 text-primary group-hover:text-primary-foreground transition-colors icon-spin-hover" />
                   </div>
-                  <h4 className="font-heading font-bold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
+                  <h4 className="font-heading font-bold text-foreground mb-1 sm:mb-2 text-sm sm:text-base group-hover:text-primary transition-colors">
                     {value.title}
                   </h4>
                   <p className="text-muted-foreground text-xs sm:text-sm">{value.description}</p>

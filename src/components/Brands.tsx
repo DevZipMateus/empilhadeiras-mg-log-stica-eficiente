@@ -90,11 +90,11 @@ const Brands = () => {
                   key={index}
                   className="pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
                 >
-                  <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center aspect-square">
+                  <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 flex items-center justify-center aspect-square group">
                     <img
                       src={brand.src}
                       alt={brand.alt}
-                      className="max-h-20 sm:max-h-24 md:max-h-28 lg:max-h-32 w-auto object-contain"
+                      className="max-h-20 sm:max-h-24 md:max-h-28 lg:max-h-32 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
                 </CarouselItem>

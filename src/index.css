@@ -201,6 +201,41 @@
     transform: scale(1.02);
   }
 
+  /* Hover scale com sombra */
+  .hover-scale-shadow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-scale-shadow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px -12px hsl(var(--secondary) / 0.4);
+  }
+
+  /* Hover rotate */
+  .hover-rotate {
+    @apply transition-transform duration-500;
+  }
+
+  .hover-rotate:hover {
+    transform: rotate(5deg);
+  }
+
+  /* Story link underline animation */
+  .story-link {
+    @apply relative inline-block;
+  }
+
+  .story-link::after {
+    content: '';
+    @apply absolute w-full h-0.5 bottom-0 left-0 bg-primary origin-bottom-right transition-transform duration-300;
+    transform: scaleX(0);
+  }
+
+  .story-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom-left;
+  }
+
   /* Text gradient animation */
   .text-gradient-animated {
     background: linear-gradient(
@@ -236,6 +271,104 @@
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+  }
+
+  /* Shimmer effect for loading states */
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--background)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Glowing border effect */
+  .glow-border {
+    @apply relative;
+  }
+
+  .glow-border::before {
+    content: '';
+    @apply absolute -inset-0.5 rounded-2xl opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    filter: blur(8px);
+    z-index: -1;
+  }
+
+  .glow-border:hover::before {
+    opacity: 0.6;
+  }
+
+  /* Pulsing dot animation */
+  .pulse-dot {
+    @apply relative;
+  }
+
+  .pulse-dot::before {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-primary;
+    animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  /* Card with animated border on hover */
+  .card-animated-border {
+    @apply relative overflow-hidden;
+  }
+
+  .card-animated-border::before {
+    content: '';
+    @apply absolute -inset-0.5;
+    background: conic-gradient(from 0deg, transparent, hsl(var(--primary)), transparent 30%);
+    animation: rotate-slow 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card-animated-border:hover::before {
+    opacity: 1;
+  }
+
+  .card-animated-border::after {
+    content: '';
+    @apply absolute inset-0.5 rounded-xl bg-background;
+  }
+
+  /* Reveal animation on scroll */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal-up.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Magnetic button effect */
+  .magnetic-hover {
+    @apply transition-transform duration-200;
+  }
+
+  /* Icon spin on hover */
+  .icon-spin-hover {
+    @apply transition-transform duration-500;
+  }
+
+  .group:hover .icon-spin-hover {
+    transform: rotate(360deg);
+  }
+
+  /* Bounce on hover */
+  .bounce-hover {
+    @apply transition-transform duration-300;
+  }
+
+  .bounce-hover:hover {
+    animation: bounce-subtle 0.5s ease-in-out;
   }
 
   @keyframes fadeIn {
@@ -291,6 +424,35 @@
     }
     50% {
       background-position: 100% 50%;
+    }
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    80%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes rotate-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
     }
   }
 }
