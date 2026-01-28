@@ -131,12 +131,12 @@ const Services = () => {
           {services.map((service, index) => (
             <ScrollReveal key={index} delay={index * 80} className="h-full">
               <div
-                className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl hover-lift group h-full"
+                className="bg-white/80 backdrop-blur-lg border border-white/40 shadow-lg p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl hover-lift group h-full glow-border"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-primary group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                  <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-primary-foreground transition-colors icon-spin-hover" />
                 </div>
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
