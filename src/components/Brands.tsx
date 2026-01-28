@@ -1,4 +1,13 @@
+import { useEffect, useCallback } from 'react';
 import { ScrollReveal } from '@/hooks/use-scroll-reveal';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import { useState } from 'react';
 
 import brand1 from '@/assets/brands/brand-1.avif';
 import brand2 from '@/assets/brands/brand-2.avif';
@@ -25,6 +34,26 @@ const brands = [
 ];
 
 const Brands = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      api?.scrollTo(index);
+    },
+    [api]
+  );
+
   return (
     <section className="section-padding bg-muted/30">
       <div className="container-custom mx-auto px-4 sm:px-6">
@@ -40,18 +69,52 @@ const Brands = () => {
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-4 sm:gap-6 items-center justify-items-center">
-            {brands.map((brand, index) => (
-              <div
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {brands.map((brand, index) => (
+                <CarouselItem
+                  key={index}
+                  className="pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
+                >
+                  <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center aspect-square">
+                    <img
+                      src={brand.src}
+                      alt={brand.alt}
+                      className="max-h-20 sm:max-h-24 md:max-h-28 lg:max-h-32 w-auto object-contain"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+
+          {/* Indicadores de navegação */}
+          <div className="flex justify-center gap-2 mt-6">
+            {brands.map((_, index) => (
+              <button
                 key={index}
-                className="bg-white rounded-xl p-3 sm:p-4 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center justify-center w-full aspect-square"
-              >
-                <img
-                  src={brand.src}
-                  alt={brand.alt}
-                  className="max-h-12 sm:max-h-16 md:max-h-20 w-auto object-contain"
-                />
-              </div>
+                onClick={() => scrollTo(index)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  current === index
+                    ? 'bg-primary w-8'
+                    : 'bg-primary/30 hover:bg-primary/50'
+                }`}
+                aria-label={`Ir para marca ${index + 1}`}
+              />
             ))}
           </div>
         </ScrollReveal>
