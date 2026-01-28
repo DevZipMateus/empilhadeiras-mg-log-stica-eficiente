@@ -9,6 +9,7 @@ import brand6 from '@/assets/brands/brand-6.avif';
 import brand7 from '@/assets/brands/brand-7.avif';
 import brand8 from '@/assets/brands/brand-8.avif';
 import brand9 from '@/assets/brands/brand-9.avif';
+import brand10 from '@/assets/brands/brand-10.avif';
 
 const brands = [
   { src: brand1, alt: 'Marca parceira 1' },
@@ -20,6 +21,7 @@ const brands = [
   { src: brand7, alt: 'Marca parceira 7' },
   { src: brand8, alt: 'Marca parceira 8' },
   { src: brand9, alt: 'Marca parceira 9' },
+  { src: brand10, alt: 'Marca parceira 10' },
 ];
 
 const Brands = () => {
